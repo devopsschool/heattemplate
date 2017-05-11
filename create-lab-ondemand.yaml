@@ -7,17 +7,21 @@ parameters:
     constraints:
       - allowed_values: [m1.nano, m1.tiny, m1.small, m1.medium,  m1.large]
         description: Value must be one of 'm1.tiny', 'm1.small' or 'm1.large'
+  key_name:
+    type: string
+    default: labondemand
+    description: default-key
   image:
     type: string
-    default: cirros
+    default: Ubuntu14_04
     description: ID or name of the image to use for the instance
   private_net_id:
     type: string
-    default: 6bbf378e-f75d-410e-844e-210c2d37b419
+    default: 7d003b6b-8a00-4025-bcba-909138b87840
     description: Private network id
   private_subnet_id:
     type: string
-    default: 760a1f4e-7dd8-4fcf-82bf-7778e20695fc
+    default: a1533721-7715-4e6a-940e-537565733c76
     description: Private subnet id
   public_net_id:
     type: string
@@ -27,10 +31,10 @@ resources:
   instance1:
     type: OS::Nova::Server
     properties:
-      name: instance1
+      name: wordpress
       image: { get_param: image }
       flavor: { get_param: flavor }
-      #key_name: { get_param: key_name }
+      key_name: { get_param: key_name }
       networks:
         - port: { get_resource: instance1_port0 }
 
