@@ -54,3 +54,8 @@ outputs:
   instance1_public_ip:
     description: Floating IP address of instance1 in public network
     value: { get_attr: [ instance1_public, floating_ip_address ] }
+  vnc_console_url:
+    description: URL to access LAB
+    value:
+      get_attr: [instance1, console_urls, novnc]
+
