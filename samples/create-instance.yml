@@ -1,0 +1,25 @@
+heat_template_version: 2015-10-15
+description: Launch a basic instance with ubuntu 16.04  image using the
+             ``m1.small`` flavor, ``mykey`` key,  and one network.
+
+resources:
+  floating_ip:
+    type: OS::Nova::FloatingIP
+    properties:
+      pool: public
+  server:
+    type: OS::Nova::Server
+    properties:
+      #image: Jenkins-customize-Image
+      image: Ubuntu16_06
+      flavor: m1.small
+      key_name: atmecs-demo-labs
+      networks:
+      - network: 1ca4fd0f-06bd-4c0a-b007-e0f01212f8f1
+
+  association:
+    type: OS::Nova::FloatingIPAssociation
+    properties:
+#      floating_ip: { get_resource: floating_ip }
+      floating_ip: 110.110.112.159
+      server_id: { get_resource: server }

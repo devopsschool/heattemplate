@@ -1,0 +1,6 @@
+parameters:
+  image: Ubuntu14_04
+  flavor: m1.medium
+  private_net_id: 6bbf378e-f75d-410e-844e-210c2d37b419
+  private_subnet_id: 760a1f4e-7dd8-4fcf-82bf-7778e20695fc
+  public_net_id: 8f9a4341-1f12-4148-86ee-24a948c9f44c
